@@ -57,13 +57,13 @@ type Interval interface {
 	// intervals.
 	Encompass(Interval) Interval
 
-	ToArray(Interval) []int64
+	ToArray() []int64
 }
 
 func (s *Set) ToArrayArray() [][]int64 {
 	array := make([][]int64, 0)
 	for _, v := range s.AllIntervals() {
-		array = append(array, v.ToArray(v))
+		array = append(array, v.ToArray())
 	}
 	return array
 }
