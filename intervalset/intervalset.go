@@ -103,6 +103,7 @@ func NewSet(intervals []Interval) *Set {
 // NewSetV1 will be renamed and will replace NewSet in the v1 release.
 func NewSetV1(intervals []Interval, makeZero func() Interval) *Set {
 	if err := CheckSorted(intervals); err != nil {
+		fmt.Println(err.Error())
 		panic(err)
 	}
 	return &Set{intervals, makeIntervalFactor(makeZero)}
